@@ -1,0 +1,61 @@
+<template>
+<div class="navbar navbar-default topnav">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" @click="toggleNav">
+        <span class="sr-only">Toggle navigfation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="/" class="navbar-brand">
+        <span class="title">{{logo.title}}</span>
+        <img :src="logo.src" :alt="logo.title">
+      </a>
+    </div>
+
+      <div id="top-navbar-collapse" :class="
+        ['collapse','navbar-collapse',{in: showCollapsedNav}]">
+        <ul class="nav navbar-nav">
+          <li v-for="(item,index) in navList" v-bind:key="item.id" :class="{ active: index === activeNavIndex}">
+            <a href="#" @click="changeNavIndex(index)">{{item}}</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</div>
+</template>
+
+<script>
+export default {
+  name: "TheHeader",
+  data(){
+    return{
+      logo:{
+        src: `${this.uploadsUrl}/logo.82b9c7a5.png`,
+        title:'welcome VUEJS'
+      },
+      navList:['抖音','快手','APP','小程序'],
+      activeNavIndex:0,
+      showCollapsedNav:false
+    }
+  },
+  beforeCreate() {
+    this.uploadsUrl = 'https://ax1089.github.io/vuejs-essential/dist/img/'
+  },
+  methods:{
+    changeNavIndex(index){
+      this.activeNavIndex = index
+    },
+    toggleNav(){
+      this.showCollapsedNav = !this.showCollapsedNav
+    }
+  }
+}
+</script>
+
+<style scoped>
+  .title{display: none;}
+  .navbar-default .navbar-nav > .active > a { background: rgba(0,0,0,.03);
+  }
+</style>
