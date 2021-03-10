@@ -1,7 +1,9 @@
 <template>
   <div class="warp">
     <TheHeader/>
-
+    <div id="main-container" class="container main-container">
+      <router-view/>
+    </div>
     <!-- TheFooter-->
     <TheFooter/>
   </div>
