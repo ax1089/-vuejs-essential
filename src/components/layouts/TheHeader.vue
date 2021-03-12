@@ -34,6 +34,7 @@
 import TheEntry from "@/components/layouts/TheEntry";
 export default {
   name: "TheHeader",
+  //添加 components 选项，并注册 Thentry
   components:{
     TheEntry
   },

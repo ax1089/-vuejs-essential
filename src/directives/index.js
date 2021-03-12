@@ -1,5 +1,4 @@
 import Vue from 'vue'
-import validator from "@/directives/validator";
-vue.directive('validator',validator)
+import validator from './validator'
 
-
+Vue.directive('validator', validator)
